@@ -1,19 +1,19 @@
 Data/TreeDumper/Renderer/ASCII
 ===============================
 
-Version 0.02
+Version 0.03
 
 Data::TreeDumper::Renderer::DHTML Rendering plug-in for Data::TreeDumper
 
 In this release:
 
-	CHANGED: use new renderer interface
+	FIXED: upgraded to latest DataTreeDumper
 	
 Ex:
 
 my $tree = { ... } ;
 
-print DumpTree($s, 'Tree', RENDERER => 'ASCII') ;
+print DumpTree($tree, 'Tree', RENDERER => 'ASCII') ;
 
 INSTALLATION
 

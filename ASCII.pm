@@ -14,7 +14,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw();
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 #-------------------------------------------------------------------------------------------
 sub GetRenderer
@@ -57,7 +57,7 @@ my
 $element_value = " = $element_value" if($element_value ne '') ;
 
 my $address = $td_address ;
-$address .= "-> $address_link" if $address_link ne '' ;
+$address .= "-> $address_link" if defined $address_link ;
 
 my $perl_data = '' ;
 $perl_data .= "<$perl_size> " if $perl_size ne '' ;

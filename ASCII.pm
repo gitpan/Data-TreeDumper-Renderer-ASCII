@@ -14,7 +14,7 @@ our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw();
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 #-------------------------------------------------------------------------------------------
 sub GetRenderer
@@ -47,15 +47,23 @@ my
 	, $separator
 	, $element_name
 	, $element_value
-	, $dtd_address
-	, $address_field
-	, $perl_data
+	, $td_address
+	, $address_link
+	, $perl_size
+	, $perl_address
 	, $setup
 	) = @_ ;
 
 $element_value = " = $element_value" if($element_value ne '') ;
 
-"$previous_level_separator$separator $element_name$element_value $address_field\n" ;
+my $address = $td_address ;
+$address .= "-> $address_link" if $address_link ne '' ;
+
+my $perl_data = '' ;
+$perl_data .= "<$perl_size> " if $perl_size ne '' ;
+$perl_data .= "$perl_address " if $perl_address ne '' ;
+
+"$previous_level_separator$separator $element_name$element_value [$address] $perl_data\n" ;
 } 
 	
 #-------------------------------------------------------------------------------------------
@@ -66,7 +74,7 @@ __END__
 
 =head1 NAME
 
-Data::TreeDumper::Renderer::ASCII - proof of concept renderer for B<Data::TreeDumper>
+Data::TreeDumper::Renderer::ASCII - Proof of concept renderer for B<Data::TreeDumper>
 
 =head1 SYNOPSIS
 
